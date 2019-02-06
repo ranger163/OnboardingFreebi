@@ -6,11 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.login.LoginActivity">
 
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/titleTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="72dp"
         android:text="@string/sign_in"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/colorBlueMidnight"

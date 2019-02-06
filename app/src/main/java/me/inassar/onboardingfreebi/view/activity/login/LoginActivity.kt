@@ -6,13 +6,15 @@ import android.text.Html
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.toolbar.*
 import me.inassar.onboardingfreebi.R
 import me.inassar.onboardingfreebi.config.AppPrefs
 import me.inassar.onboardingfreebi.hide
 import me.inassar.onboardingfreebi.show
 import me.inassar.onboardingfreebi.state.LoginState
 import me.inassar.onboardingfreebi.state.ScreenState
-import me.inassar.onboardingfreebi.toast
+import me.inassar.onboardingfreebi.toolbar
+import me.inassar.onboardingfreebi.view.activity.HomeActivity
 import me.inassar.onboardingfreebi.view.activity.OnBoardingActivity
 import me.inassar.onboardingfreebi.viewmodel.LoginViewModel
 
@@ -25,22 +27,25 @@ class LoginActivity : AppCompatActivity() {
         // Check if the app is launched before
         if (AppPrefs(this).isFirstTimeLaunch()) {
             startActivity(Intent(this, OnBoardingActivity::class.java))
+            finish()
         }
         setContentView(R.layout.activity_login)
 
-        signUpTv.apply {
-            text = Html.fromHtml("$text <font color='#6c63ff'>SignUp</font>")
-        }
         init()
         interactions()
     }
 
     private fun init() {
+        toolbar(toolBar)
         viewModel = ViewModelProviders.of(
                 this,
                 LoginViewModel.LoginViewModelFactory(LoginInteractor())
         )[LoginViewModel::class.java]
         viewModel.loginState.observe(::getLifecycle, ::updateUi)
+
+        signUpTv.apply {
+            text = Html.fromHtml("$text <font color='#6c63ff'>SignUp</font>")
+        }
     }
 
     private fun interactions() {
@@ -62,7 +67,10 @@ class LoginActivity : AppCompatActivity() {
     private fun processLoginState(renderState: LoginState) {
         loading.hide()
         when (renderState) {
-            LoginState.SUCCESS -> toast("success")
+            LoginState.SUCCESS -> {
+                startActivity(Intent(this, HomeActivity::class.java))
+                finish()
+            }
             LoginState.WRONG_USERNAME ->
                 usernameEt.error = resources.getString(R.string.invalid_username)
             LoginState.WRONG_PASSWORD ->
