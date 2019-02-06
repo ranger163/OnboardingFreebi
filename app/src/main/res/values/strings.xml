@@ -20,4 +20,12 @@
     <string name="skip">Skip</string>
     <string name="get_started">Get started</string>
 
+    <string name="sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login">Login</string>
+    <string name="new_user">New User?</string>
+
 </resources>

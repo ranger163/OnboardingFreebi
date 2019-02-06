@@ -1,5 +1,6 @@
 package me.inassar.onboardingfreebi.view.activity
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
@@ -67,7 +68,7 @@ class OnBoardingActivity : AppCompatActivity() {
         appPrefs = AppPrefs(this)
         if (!appPrefs.isFirstTimeLaunch()) {
             // Launch login screen
-            toast("Go to login")
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         /** Layouts of the three onBoarding Screens.
@@ -95,8 +96,12 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     private fun interactions() {
-        skipBtn.setOnClickListener { toast("Go to login") }
+        skipBtn.setOnClickListener {
+            // Launch login screen
+            toast("Go to login")
+        }
         startBtn.setOnClickListener {
+            // Launch login screen
             appPrefs.setFirstTimeLaunch(false)
             toast("Go to login")
         }
