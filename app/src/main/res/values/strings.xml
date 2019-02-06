@@ -27,5 +27,7 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="login">Login</string>
     <string name="new_user">New User?</string>
+    <string name="invalid_username">Invalid username</string>
+    <string name="invalid_password">Invalid password</string>
 
 </resources>

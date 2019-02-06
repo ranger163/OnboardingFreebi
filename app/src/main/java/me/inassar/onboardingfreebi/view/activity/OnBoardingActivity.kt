@@ -1,10 +1,8 @@
 package me.inassar.onboardingfreebi.view.activity
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.text.Html
-import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -13,7 +11,7 @@ import me.inassar.onboardingfreebi.R
 import me.inassar.onboardingfreebi.config.AppPrefs
 import me.inassar.onboardingfreebi.hide
 import me.inassar.onboardingfreebi.show
-import me.inassar.onboardingfreebi.toast
+import me.inassar.onboardingfreebi.view.activity.login.LoginActivity
 import me.inassar.onboardingfreebi.view.adapter.SliderAdapter
 
 class OnBoardingActivity : AppCompatActivity() {
@@ -21,8 +19,6 @@ class OnBoardingActivity : AppCompatActivity() {
     private lateinit var sliderAdapter: SliderAdapter
     private var dots: Array<TextView?>? = null
     private lateinit var layouts: Array<Int>
-    private lateinit var appPrefs: AppPrefs
-
     private val sliderChangeListener = object : OnPageChangeListener {
 
         override fun onPageSelected(position: Int) {
@@ -50,13 +46,6 @@ class OnBoardingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Make notification bar transparent
-        if (Build.VERSION.SDK_INT >= 21) {
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN and
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        }
-
         setContentView(R.layout.activity_onboarding)
 
         init()
@@ -65,12 +54,6 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        appPrefs = AppPrefs(this)
-        if (!appPrefs.isFirstTimeLaunch()) {
-            // Launch login screen
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
-
         /** Layouts of the three onBoarding Screens.
          *  Add more layouts if you wish.
          **/
@@ -98,12 +81,11 @@ class OnBoardingActivity : AppCompatActivity() {
     private fun interactions() {
         skipBtn.setOnClickListener {
             // Launch login screen
-            toast("Go to login")
+            navigateToLogin()
         }
         startBtn.setOnClickListener {
             // Launch login screen
-            appPrefs.setFirstTimeLaunch(false)
-            toast("Go to login")
+            navigateToLogin()
         }
         nextBtn.setOnClickListener {
             /**
@@ -118,9 +100,15 @@ class OnBoardingActivity : AppCompatActivity() {
                 slider.currentItem = current
             } else {
                 // Launch login screen
-                toast("Go to login")
+                navigateToLogin()
             }
         }
+    }
+
+    private fun navigateToLogin() {
+        AppPrefs(this).setFirstTimeLaunch(false)
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     private fun addBottomDots(currentPage: Int) {
