@@ -41,3 +41,7 @@ You can try the apk on your device from [here](https://drive.google.com/open?id=
 
 ## Hire Me
 I'm ready for a full-time or a freelancing job, just drop me an email [here](https://www.inassar.me) and let's do our chating.
+
+## License
+Copyright © 2018 Ahmed Nassar
+Licensed under the [MIT License](LICENSE)
