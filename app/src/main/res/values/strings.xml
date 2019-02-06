@@ -15,7 +15,9 @@
     <string name="onboarding_slide3_subtitle">Feel the happiness</string>
     <string name="onboarding_slide3_desc">User will be able to give you live, chat and meet
         with people nearby.</string>
+
     <string name="next">Next</string>
     <string name="skip">Skip</string>
+    <string name="get_started">Get started</string>
 
 </resources>
