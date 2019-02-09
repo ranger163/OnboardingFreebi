@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a working project for a picked up free design from [uplabs.com](https://www.uplabs.com/posts/onboarding-screen-freebie-548c4669-8ef7-43a9-857c-e12d92772c1b) website written
+This is a [PROJECT IVORY](https://github.com/ranger163/ProjectIvory) repository for a picked up free design from [uplabs.com](https://www.uplabs.com/posts/onboarding-screen-freebie-548c4669-8ef7-43a9-857c-e12d92772c1b) website written
 in kotlin using MVVM design pattern that containes 4 screens "Login, Slider1, Slider2 and Slider3" screens. I've implemented each screen and it's
 functions "NOT ONLY DESIGN OR XML FILES"and made it ready to be customized on your project if you wish to use it just clone
 this project and start customizing.
