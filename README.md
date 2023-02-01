@@ -40,7 +40,7 @@ You can try the apk on your device from [here](https://drive.google.com/open?id=
 | ![Configuration Screenshot](/screenshoot/01-slider1.png)  | ![Configuration Screenshot](/screenshoot/02-slider2.png)  | ![Configuration Screenshot](/screenshoot/03-slider3.png) | ![Configuration Screenshot](/screenshoot/04-loginScreen.png) |
 
 ## Hire Me
-I'm ready for a full-time or a freelancing job, just drop me an email [here](https://www.inassar.me) and let's do our chating.
+I'm ready for a full-time or a freelancing job, just drop me an email [here](https://www.inassar.me/) and let's do our chating.
 
 ## License
 Made with :heart: by [Ahmed Nassar](https://github.com/ranger163), licensed under the [MIT License](LICENSE)
